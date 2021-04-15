@@ -1,9 +1,35 @@
-{% extends "base.html.twig" %}
-
-{% block title %}Index
+{# templates/program/show.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}Série #{{ program.id }}
 {% endblock %}
 
 {% block body %}
-	<h1 class="display-5">Program: {{id}}
-	{# <img src="{{ asset('build/samourai.jpg') }}" alt=""/> #}
+	<div class="d-flex justify-content-center mt-5">
+		<div class="card" style="max-width: 650px;">
+			<div class="row g-0">
+				<div class="col md-4">
+					<img class="media card-img-top h-100" src=" {{program.poster}} " alt=" {{ program.title }} poster">
+				</div>
+				<div class="col md-8">
+					<div class="card-body">
+						<h1 class="card-title">{{ program.title }}</h1>
+						<p class="card-text">{{ program.summary }}</p>
+						<p class="text-primary">
+							<u>Catégorie :
+								{{ program.category.name }}</u>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<a class="d-flex justify-content-center mt-5 text-secondary" href="{{ path('program_index') }}">
+			Retour à la liste des programmes
+		</a>
+	</div>
+
 {% endblock %}
+
+
+{# <img src="{{ asset('build/samourai.jpg') }}" alt=""/> #}
