@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All Categories
+{% endblock %}
+
+{% block body %}
+	<h1 class="my-3 text-center">Toutes les séries de la table program :
+	</h1>
+	<div class="container">
+		<div class="row d-flex">
+			{% for categorie in categories %}
+
+				<div class="col-md-4">
+					<div class="card m-4">
+						<div class="card-header">
+							<h4 class="card-title">{{ loop.index }}
+								/
+								{# {{ categorie.name }} #}
+								- Catégorie :
+								{{ categorie.name }}</h4>
+						</div>
+						{# <div class="card-body">
+																									<p class="card-text">{{ program.summary }}</p>
+																									{# Lien vers la fiche de la série : #}
+					{# <a class="btn btn-secondary text-primary" href="{{ path("program_show", { id: program.id }) }}">Voir la fiche</a> #}
+						{#</div>#}
+
+
+					</div>
+				</div>
+
+			{% else %}
+				Aucune catégorie trouvée.
+			{% endfor %}
+		</div>
+	</div>
+	<a href="{{ path('app_index') }}">
+		Retour à l'accueil
+	</a>
+{% endblock %}
